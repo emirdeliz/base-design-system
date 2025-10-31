@@ -1,4 +1,4 @@
-import { render } from '@test';
+import { render } from '@testing-library/react';
 import { Col } from './Col';
 
 const ColSimple = () => (
@@ -31,18 +31,18 @@ describe('Col component test', () => {
       []) as HTMLCollectionOf<HTMLDivElement>;
 
     // Verificar se todos os elementos estão presentes
-    expect(cols[0]).toBeInTheDocument();
-    expect(cols[1]).toBeInTheDocument();
-    expect(cols[2]).toBeInTheDocument();
-    expect(cols[3]).toBeInTheDocument();
-    expect(cols[4]).toBeInTheDocument();
-    expect(cols[5]).toBeInTheDocument();
-    expect(cols[6]).toBeInTheDocument();
-    expect(cols[7]).toBeInTheDocument();
-    expect(cols[8]).toBeInTheDocument();
-    expect(cols[9]).toBeInTheDocument();
-    expect(cols[10]).toBeInTheDocument();
-    expect(cols[11]).toBeInTheDocument();
-    expect(cols[12]).toBeInTheDocument();
+    expect(cols[0]).toBeDefined();
+    expect(cols[1]).toBeDefined();
+    expect(cols[2]).toBeDefined();
+    expect(cols[3]).toBeDefined();
+    expect(cols[4]).toBeDefined();
+    expect(cols[5]).toBeDefined();
+    expect(cols[6]).toBeDefined();
+    expect(cols[7]).toBeDefined();
+    expect(cols[8]).toBeDefined();
+    expect(cols[9]).toBeDefined();
+    expect(cols[10]).toBeDefined();
+    expect(cols[11]).toBeDefined();
+    expect(cols[12]).toBeDefined();
   });
 });

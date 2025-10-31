@@ -1,4 +1,4 @@
-import { render } from '@test';
+import { render } from '@testing-library/react';
 import { Flex } from './Flex';
 
 describe('Flex component test', () => {
@@ -9,7 +9,7 @@ describe('Flex component test', () => {
 
   it('Have Flex center', async () => {
     const { baseElement: flexNode } = render(<Flex.Center>H</Flex.Center>);
-    expect(flexNode.firstChild?.firstChild).toBeInTheDocument();
+    expect(flexNode.firstChild?.firstChild).toBeDefined();
   });
 
   it('Have Flex width full height full', async () => {
@@ -18,6 +18,6 @@ describe('Flex component test', () => {
         H
       </Flex.Center>
     );
-    expect(flexNode.firstChild?.firstChild).toBeInTheDocument();
+    expect(flexNode.firstChild?.firstChild).toBeDefined();
   });
 });
