@@ -1,3 +1,4 @@
+'use client';
 import React, { memo, ReactNode, useEffect, useState } from 'react';
 
 export type ColSize =
@@ -24,7 +25,6 @@ export interface ColProps {
   desktop?: ColSize;
   auto?: boolean;
   children?: ReactNode;
-  // Margens
   m?: string;
   mt?: string;
   mr?: string;
@@ -32,7 +32,6 @@ export interface ColProps {
   ml?: string;
   mx?: string;
   my?: string;
-  // Padding
   p?: string;
   pt?: string;
   pr?: string;
@@ -85,13 +84,11 @@ const ColBase = memo(({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Construir classes de grid responsivo
   const getGridClasses = () => {
     if (auto) {
       return 'flex-1 max-w-full';
     }
 
-    // Mapear tamanhos para classes Tailwind
     const sizeMap: Record<ColSize, string> = {
       '1': 'w-1/12',
       '2': 'w-2/12',
@@ -107,40 +104,32 @@ const ColBase = memo(({
       '12': 'w-full',
     };
 
-    // Classes base
     let classes = ['min-h-px', 'box-border'];
 
-    // Desktop (padrão)
     if (de) {
       classes.push(sizeMap[de]);
     }
 
-    // Mobile S (320px)
     if (mobiles) {
       classes.push(`sm:${sizeMap[mobiles]}`);
     }
 
-    // Mobile M (375px)
     if (mobilem) {
       classes.push(`sm:${sizeMap[mobilem]}`);
     }
 
-    // Mobile L (425px)
     if (mobilel) {
       classes.push(`md:${sizeMap[mobilel]}`);
     }
 
-    // Tablet (768px)
     if (tablet) {
       classes.push(`lg:${sizeMap[tablet]}`);
     }
 
-    // Laptop (1024px)
     if (laptop) {
       classes.push(`xl:${sizeMap[laptop]}`);
     }
 
-    // Desktop (1440px)
     if (desktop) {
       classes.push(`2xl:${sizeMap[desktop]}`);
     }
@@ -148,7 +137,6 @@ const ColBase = memo(({
     return classes.join(' ');
   };
 
-  // Construir margens
   const marginClasses = [
     m && `m-${m}`,
     mt && `mt-${mt}`,
@@ -159,7 +147,6 @@ const ColBase = memo(({
     my && `my-${my}`,
   ].filter(Boolean).join(' ');
 
-  // Construir padding
   const paddingClasses = [
     p && `p-${p}`,
     pt && `pt-${pt}`,
@@ -174,7 +161,7 @@ const ColBase = memo(({
     getGridClasses(),
     marginClasses,
     paddingClasses,
-    'px-2', // Padding horizontal padrão para espaçamento entre colunas
+    'px-2',
   ].filter(Boolean).join(' ');
 
   return (

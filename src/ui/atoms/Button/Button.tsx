@@ -14,13 +14,11 @@ export interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   type?: 'submit' | 'reset' | 'button';
   variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
-  // Tamanhos
   xs?: boolean;
   sm?: boolean;
   nm?: boolean;
   lg?: boolean;
   xl?: boolean;
-  // Margens
   m?: string;
   mt?: string;
   mr?: string;
@@ -28,7 +26,6 @@ export interface ButtonProps {
   ml?: string;
   mx?: string;
   my?: boolean;
-  // Props específicas
   default?: boolean;
 }
 
@@ -60,7 +57,6 @@ export const Button = ({
   default: defaultVariant = false,
   ...props
 }: ButtonProps) => {
-  // Construir classes Tailwind dinamicamente
   const sizeClasses = xs ? 'px-2 py-1 text-xs' : 
                      sm ? 'px-3 py-1.5 text-sm' : 
                      nm ? 'px-4 py-2 text-sm' :
@@ -70,7 +66,6 @@ export const Button = ({
   const widthClasses = wFull ? 'w-full' : 'w-auto';
   const radiusClasses = circle ? 'rounded-full' : rounded ? 'rounded-lg' : 'rounded-md';
   
-  // Variantes de cor
   const variantClasses = {
     primary: outlined ? 'border-blue-600 text-blue-600 hover:bg-blue-50' : 'bg-blue-600 text-white hover:bg-blue-700',
     secondary: outlined ? 'border-gray-600 text-gray-600 hover:bg-gray-50' : 'bg-gray-600 text-white hover:bg-gray-700',
@@ -84,7 +79,6 @@ export const Button = ({
   const opacityClasses = clickable ? 'opacity-100' : 'opacity-50';
   const cursorClasses = clickable ? 'cursor-pointer' : 'cursor-not-allowed';
   
-  // Construir margens
   const marginClasses = [
     m && `m-${m}`,
     mt && `mt-${mt}`,

@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 
 export interface RowProps {
   children: ReactNode;
-  // Margens
   m?: string;
   mt?: string;
   mr?: string;
@@ -10,7 +9,6 @@ export interface RowProps {
   ml?: string;
   mx?: string;
   my?: string;
-  // Padding
   p?: string;
   pt?: string;
   pr?: string;
@@ -38,7 +36,6 @@ export const Row = ({
   py,
   ...props 
 }: RowProps) => {
-  // Construir margens
   const marginClasses = [
     m && `m-${m}`,
     mt && `mt-${mt}`,
@@ -49,7 +46,6 @@ export const Row = ({
     my && `my-${my}`,
   ].filter(Boolean).join(' ');
 
-  // Construir padding
   const paddingClasses = [
     p && `p-${p}`,
     pt && `pt-${pt}`,

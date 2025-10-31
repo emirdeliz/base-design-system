@@ -26,7 +26,6 @@ export interface FlexProps {
   flex1?: boolean;
   overflowY?: boolean;
   gap?: number;
-  // Margens
   m?: string;
   mt?: string;
   mr?: string;
@@ -34,7 +33,6 @@ export interface FlexProps {
   ml?: string;
   mx?: string;
   my?: string;
-  // Padding
   p?: string;
   pt?: string;
   pr?: string;
@@ -84,11 +82,9 @@ export const Flex = ({
   py,
   ...props 
 }: FlexProps) => {
-  // Construir classes de flexbox
   const flexDirection = col ? 'flex-col' : row ? 'flex-row' : 'flex-row';
   const flexWrap = wrap ? 'flex-wrap' : 'flex-nowrap';
   
-  // Justify content
   const justifyClasses = [
     justifyStart && 'justify-start',
     justifyEnd && 'justify-end',
@@ -98,7 +94,6 @@ export const Flex = ({
     justifyInitial && 'justify-initial',
   ].filter(Boolean)[0] || 'justify-start';
 
-  // Align items
   const alignClasses = [
     alignStart && 'items-start',
     alignEnd && 'items-end',
@@ -109,7 +104,6 @@ export const Flex = ({
     alignInitial && 'items-initial',
   ].filter(Boolean)[0] || 'items-start';
 
-  // Construir margens
   const marginClasses = [
     m && `m-${m}`,
     mt && `mt-${mt}`,
@@ -120,7 +114,6 @@ export const Flex = ({
     my && `my-${my}`,
   ].filter(Boolean).join(' ');
 
-  // Construir padding
   const paddingClasses = [
     p && `p-${p}`,
     pt && `pt-${pt}`,
