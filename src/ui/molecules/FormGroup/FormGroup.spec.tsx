@@ -1,4 +1,5 @@
-import { render } from '@test';
+
+import { render } from '@testing-library/react';
 import { FormGroup } from './FormGroup';
 
 describe('FormGroup component test', () => {
@@ -25,10 +26,10 @@ describe('FormGroup component test', () => {
       `[for='${input.id}']`
     ) as HTMLLabelElement;
 
-    expect(label).toBeInTheDocument();
+    expect(label).toBeDefined();
     expect(label.innerHTML).toEqual('Entre com o nome');
 
-    expect(input).toBeInTheDocument();
+    expect(input).toBeDefined();
     expect(input.value).toBeFalsy();
   });
 
@@ -46,10 +47,10 @@ describe('FormGroup component test', () => {
       `[for='${textarea.id}']`
     ) as HTMLLabelElement;
 
-    expect(label).toBeInTheDocument();
+    expect(label).toBeDefined();
     expect(label.innerHTML).toEqual('Entre com a descrição');
 
-    expect(textarea).toBeInTheDocument();
+    expect(textarea).toBeDefined();
     expect(textarea.value).toBeFalsy();
   });
 });

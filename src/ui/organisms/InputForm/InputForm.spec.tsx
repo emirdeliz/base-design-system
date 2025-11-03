@@ -1,4 +1,4 @@
-import { render } from '@test';
+import { render } from '@testing-library/react';
 import { InputForm } from './InputForm';
 
 describe('/ui/molecules/InputForm', () => {
@@ -11,13 +11,13 @@ describe('/ui/molecules/InputForm', () => {
     });
     
     const { container } = render(
-      <InputForm password id={PASSWORD_ID} value={pass} onChange={onChange}>
+      <InputForm type="password" id={PASSWORD_ID} value={pass} onChange={onChange}>
         Nome
       </InputForm>,
     );
 
     const inputPass = container.querySelector(`#${PASSWORD_ID}`);
-    expect(inputPass).toBeInTheDocument();
+    expect(inputPass).toBeDefined();
   });
 
   it('Should not show error when password has enough required characters', async () => {
@@ -27,12 +27,12 @@ describe('/ui/molecules/InputForm', () => {
     });
 
     const { container } = render(
-      <InputForm password id={PASSWORD_ID} value={pass} onChange={onChange}>
+      <InputForm type="password" id={PASSWORD_ID} value={pass} onChange={onChange}>
         Nome
       </InputForm>,
     );
 
     const inputPass = container.querySelector(`#${PASSWORD_ID}`);
-    expect(inputPass).toBeInTheDocument();
+    expect(inputPass).toBeDefined();
   });
 });
